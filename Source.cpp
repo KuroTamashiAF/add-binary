@@ -6,11 +6,17 @@ using namespace std;
 class Solution {
 public:
     string addBinary(string a, string b) {
+        if (a.empty())
+            return b;
+        if (b.empty())
+            return a;
+        if (a.empty() || b.empty())
+            return "";
+
         int a1 = twoToTen(a);
         int a2 = twoToTen(b);
         int res = a1 + a2;
-
-        return "";
+        return tenToTwo(res);
     }
     int twoToTen(string a)
     {
@@ -21,6 +27,30 @@ public:
         }
         return res;
     }
+    string tenToTwo(int input)
+    {
+        int c = input;
+        string res = "";
+        int remaider = 0;
+        
+        while (c > 1)
+        {
+            remaider = c % 2;
+            res += to_string(remaider);
+            c /= 2;
+;            
+        }
+        res += to_string(c);
+        
+        for (int i = 0; i < res.length()/2; i++)
+        {
+            char temp = res[i];
+            res[i] = res[res.length() - 1 - i];
+            res[res.length() - 1 - i] = temp;
+             
+        }
+        return res;
+    }
 
 };
 
@@ -28,8 +58,8 @@ public:
 int main()
 {
     Solution s;
-    string input1 = "1010";
-    string input2 = "1011";
+    string input1 = "11";
+    string input2 = "1";
     cout << s.addBinary(input1, input2) << endl;
 
 
