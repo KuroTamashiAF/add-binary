@@ -18,7 +18,7 @@ public:
         int res = a1 + a2;
         return tenToTwo(res);
     }
-    long twoToTen(string a)
+    int twoToTen(string a)
     {
         int res = NULL;
         for (int i = 0; i < a.length(); i++)
@@ -50,12 +50,22 @@ public:
              
         }
         return res;*/
+        int ia = a.length() - 1;
+        int ib = b.length() - 1;
+        int carry = 0;
+        string res = "";
 
+        while (ia >= 0 || ib >= 0 || carry)
+        {
+            if (ia>=0)carry += a[ia--] - '0';
+            if (ib>=0)carry += b[ib--] - '0';
 
-
-
-
-
+            res += (carry % 2 + '0');
+            carry /= 2;
+        }
+        reverse(res.begin(), res.end());
+        return res;
+            
     }
 
 };
@@ -64,8 +74,8 @@ public:
 int main()
 {
     Solution s;
-    string input1 = "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101";
-    string input2 = "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011";
+    string input1 = "1010";
+    string input2 = "1011";
     cout << s.addBinary(input1, input2) << endl;
 
 
