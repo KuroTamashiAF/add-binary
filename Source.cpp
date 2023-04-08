@@ -6,7 +6,7 @@ using namespace std;
 class Solution {
 public:
     string addBinary(string a, string b) {
-        if (a.empty())
+        /*if (a.empty())
             return b;
         if (b.empty())
             return a;
@@ -18,7 +18,7 @@ public:
         int res = a1 + a2;
         return tenToTwo(res);
     }
-    int twoToTen(string a)
+    long twoToTen(string a)
     {
         int res = NULL;
         for (int i = 0; i < a.length(); i++)
@@ -49,7 +49,13 @@ public:
             res[res.length() - 1 - i] = temp;
              
         }
-        return res;
+        return res;*/
+
+
+
+
+
+
     }
 
 };
@@ -58,8 +64,8 @@ public:
 int main()
 {
     Solution s;
-    string input1 = "11";
-    string input2 = "1";
+    string input1 = "10100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101";
+    string input2 = "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011";
     cout << s.addBinary(input1, input2) << endl;
 
 
